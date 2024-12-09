@@ -22,8 +22,6 @@ pnpm add -D eslint-plugin-descriptive-link-text
 
 Add `descriptive-link-text` to your ESLint configuration:
 
-### Basic Configuration
-
 ```javascript
 module.exports = {
   plugins: ['descriptive-link-text'],
@@ -33,16 +31,19 @@ module.exports = {
 }
 ```
 
-#### Examples
+## Examples
 
-**Incorrect:**
+:x: NG
 
-```jsx
+```tsx
 <a>Click here</a>
 <button>Learn more</button>
 ```
 
-**Correct:**
+![image](https://github.com/user-attachments/assets/3c886552-15ec-4711-9e13-3214f2efeca8)
+
+
+✅ OK
 
 ```jsx
 <a>View product details</a>

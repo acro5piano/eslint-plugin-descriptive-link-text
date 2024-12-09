@@ -1,4 +1,11 @@
 {
-  "version": "1.0.0",
-  "main": "./index.js"
+  "name": "eslint-plugin-banned-anchor-text",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "description": "An ESLint plugin that enforces meaningful and descriptive text for all (or optionally specific tags) JSX elements",
+  "scripts": {
+    "test": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "devDependencies": {
+  }
 }

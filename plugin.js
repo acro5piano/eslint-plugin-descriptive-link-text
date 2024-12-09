@@ -2,36 +2,37 @@ module.exports = {
   meta: {
     type: 'problem',
     docs: {
-      description: 'Ban specific phrases as the text content of <a> elements.',
+      description:
+        'Disable specific undescriptive phrases as the text content of JSX elements.',
       category: 'Possible Errors',
       recommended: false,
     },
-    schema: [], // no options
+    schema: [], // No Options
     messages: {
-      bannedAnchorText:
-        "Avoid using banned anchor text: '{{text}}'. Use descriptive text instead.",
+      undescriptiveLinkText:
+        "Avoid using undescriptive anchor text: '{{text}}'. Use descriptive text instead.",
     },
   },
   create(context) {
     return {
       JSXElement(node) {
         if (node.children.length === 1 && node.children[0].type === 'JSXText') {
-          const textContent = node.children[0].value.trim().toLowerCase();
-          if (bannedPhrases.includes(textContent)) {
+          const textContent = node.children[0].value.trim().toLowerCase()
+          if (defaultBlocklist.includes(textContent)) {
             context.report({
               node,
-              messageId: 'bannedAnchorText',
+              messageId: 'undescriptiveLinkText',
               data: { text: node.children[0].value.trim() },
-            });
+            })
           }
         }
       },
-    };
+    }
   },
-};
+}
 
 // See: https://github.com/GoogleChrome/lighthouse/blob/b64b3534542c9dcaabb33d40b84ed7c93eefbd7d/core/audits/seo/link-text.js#L11-L99
-const bannedPhrases = [
+const defaultBlocklist = [
   // English
   'click here',
   'click this',
@@ -126,4 +127,4 @@ const bannedPhrases = [
   'بیشتر بدانید',
   'بیشتر',
   'شروع',
-];
+]

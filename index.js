@@ -1,7 +1,7 @@
-const linkTextPlugin = require('./plugin');
+const linkTextPlugin = require('./plugin')
 
 module.exports = {
   rules: {
-    undescriptive: linkTextPlugin,
+    'no-undescriptive-text': linkTextPlugin,
   },
-};
+}
